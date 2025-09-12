@@ -16,6 +16,6 @@ println!("{}", "Complete!".bold().blink().bright_white());
 let foo = Foo::new();  // Foo implements "Debug"
 println!("{:?}", foo.bg_yellow());
 
-let bar = Bar::new();  // Bar implements "Display + Debug"
+let bar = Bar::new();  // Bar implements "Display"
 println!("{}", bar.bg_truecolor(128, 50, 255));
 ```
