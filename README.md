@@ -8,7 +8,7 @@ use print_style::{Stylize as _, AnsiStylize as _};
 println!("{}", "Hello, World".red().bold());
 
 for i in 0..5 {
-  print!("{}", format!("{i} / 2").override_line());  // better: print!("{} / 2", i.override_line());
+  print!("{}", format!("{i} / 5").override_line());  // better: print!("{} / 2", i.override_line());
   std::io::stdout().flush().unwrap();
 }
 println!("{}", "Complete!".bold().blink().bright_white());
