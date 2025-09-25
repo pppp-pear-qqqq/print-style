@@ -1,7 +1,7 @@
 # print-style
 Easily write text decorations with Rust's println!
 
-# example
+## example
 ```Rust
 use print_style::{Stylize as _, AnsiStylize as _};
 
