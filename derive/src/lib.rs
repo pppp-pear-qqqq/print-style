@@ -29,7 +29,7 @@ fn generate(input: &DeriveInput) -> Result<TokenStream, syn::Error> {
 		let ident = &v.ident;
 		variants.push(quote! {
 			fn #ident(&self) -> Styled<'_, Self> {
-				self.with(vec![Effect::Style(Ansi::#ident)])
+				self.with(vec![Effect::Style(Ansi::#ident)], true)
 			}
 		});
 	}

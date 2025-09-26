@@ -75,24 +75,24 @@ impl Effect {
 }
 
 pub trait Stylize: Sized {
-	fn with(&self, effects: Vec<Effect>) -> Styled<'_, Self> {
-		Styled { value: self, effects }
+	fn with(&self, effects: Vec<Effect>, reset: bool) -> Styled<'_, Self> {
+		Styled { value: self, effects, reset }
 	}
 
 	fn color(&self, code: u8) -> Styled<'_, Self> {
-		self.with(vec![Effect::Color(code)])
+		self.with(vec![Effect::Color(code)], true)
 	}
 	fn truecolor(&self, r: u8, g: u8, b: u8) -> Styled<'_, Self> {
-		self.with(vec![Effect::TrueColor(r, g, b)])
+		self.with(vec![Effect::TrueColor(r, g, b)], true)
 	}
 	fn bg_color(&self, code: u8) -> Styled<'_, Self> {
-		self.with(vec![Effect::BgColor(code)])
+		self.with(vec![Effect::BgColor(code)], true)
 	}
 	fn bg_truecolor(&self, r: u8, g: u8, b: u8) -> Styled<'_, Self> {
-		self.with(vec![Effect::BgTrueColor(r, g, b)])
+		self.with(vec![Effect::BgTrueColor(r, g, b)], true)
 	}
 	fn override_line(&self) -> Styled<'_, Self> {
-		self.with(vec![Effect::ClearLine, Effect::MoveCursorToStart])
+		self.with(vec![Effect::ClearLine, Effect::MoveCursorToStart], false)
 	}
 }
 impl<T> Stylize for T {}
