@@ -34,7 +34,7 @@ impl<T: Display> Display for Styled<'_, T> {
 impl<T: Debug> Debug for Styled<'_, T> {
 	fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
 		for e in &self.effects {
-			write!(f, "{}", e.to_ansi())?;
+			f.write_str(&e.to_ansi())?;
 		}
 		write!(f, "{:?}", self.value)?;
 		if self.reset {
